@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Rastreamento</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <style>
+
+    html, body, #campo {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+
+   
+    #campo{
+      vertical-align: middle;
+      text-align: center;
+      padding: 100px;
+      
+    }
+
+    #YQNum{
+      padding-left: 5px;
+
+      padding-right: 500px;
+    }
+    
+   
+    
+    .input-group{
+      padding-top: 10px;
+      padding-left: 110px;
+      
+    }
+
+    .btn-warning{
+
+      border-radius: 0px;
+    }
+
+    h1{
+      letter-spacing: 3px;
+    }
+    
+    p{
+
+    padding-top: 10px;
+    }
+
+    </style>
+
+<script type="text/javascript" src="//www.17track.net/externalcall.js"></script>
+<script type="text/javascript">
+   function doTrack() {
+     var num = document.getElementById("YQNum").value;
+     if(num===""){
+
+       alert("Insira seu número."); 
+
+
+       return;
+
+       
+}
+     
+     YQV5.trackSingle({
+
+    
+       //Necessário, Especifique o ID do recipiente do conteúdo da transportadora.
+       YQ_ContainerId:"YQContainer",
+       //Opcional, especifique a altura do resultado do rastreamento, altura máxima de 800px, padrão de 560px.
+       YQ_Height:560,
+       //Opcional, selecione transportadora, padrão para auto identificar.
+       YQ_Fc:"0",
+       //Opcional, especifique o idioma da interface, idioma padrão é automaticamente detectado baseado nas configurações do navegador.
+       YQ_Lang:"en",
+       //Necessário, especifique o código necessário para o rastreamento.
+       YQ_Num:num
+});
+}
+</script>
+
+
+
+  </head>
+
+  <body>
+    <header class="hidden"></header>
+
+      <div class="container" id="campo">
+        <div class="row">
+          <div class="col-md-12">
+            
+            <h1> Rastreie sua incomenda </h1>
+            
+            <div class="wrapper">
+            <div class="input-group" >
+                <input type="text" id="YQNum" maxlength="50" placeholder="DIGITE SEU CÓDIGO" autofocus/>
+                <button class="btn btn-warning" id="trackBtn" value="TRACK" onclick="doTrack()" >  RASTREAR  </button>
+            
+            
+                <p><i>Exemplo:</i> <span style="color: grey">RR123456789CN</span></p>
+
+                <div id="YQContainer"></div>
+              
+                
+            
+             </div>
+             </div>
+
+           </div>
+             
+
+         </div> 
+       </div> 
+
+
+  </body>
+</html>
